@@ -12,6 +12,13 @@ namespace HelloXamarin
         public MainPage()
         {
             InitializeComponent();
+
+            listViewVeiculos.ItemsSource = new string[]
+            {
+                "Azera V6",
+                "Fiesta 2.0",
+                "HB20S"
+            }; 
         }
     }
 }
