@@ -4,7 +4,21 @@
              xmlns:local="clr-namespace:HelloXamarin"
              x:Class="HelloXamarin.MainPage">
 
-    <ListView x:Name="listViewVeiculos">
+    <ListView x:Name="listViewVeiculos" ItemsSource="{Binding Veiculos}" Margin="25"
+              ItemTapped="ListViewVeiculos_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" FontSize="20" VerticalTextAlignment="Center"></Label>
+                            <Label Text=" - " VerticalTextAlignment="Center"></Label>
+                            <Label Text="{Binding FormattedPrice}" FontSize="20" FontAttributes="Bold" VerticalTextAlignment="Center"></Label>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
     </ListView>
 
 </ContentPage>
