@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace HelloXamarin
+namespace HelloXamarin.Views
 {
     public class Veiculo
     {
@@ -14,12 +14,12 @@ namespace HelloXamarin
         public string FormattedPrice { get { return string.Format("R$ {0}", Price); } }
     }
 
-    public partial class MainPage : ContentPage
+    public partial class ListagemView : ContentPage
     {
 
         public List<Veiculo> Veiculos { get; set; }
 
-        public MainPage()
+        public ListagemView()
         {
             InitializeComponent();
 
@@ -37,7 +37,8 @@ namespace HelloXamarin
         private void ListViewVeiculos_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var veiculo = (Veiculo) e.Item;
-            DisplayAlert("Test drive", string.Format("Você tocou no modelo '{0}', que custa {1}", veiculo.Name, veiculo.FormattedPrice), "OK");
+            // DisplayAlert("Test drive", string.Format("Você tocou no modelo '{0}', que custa {1}", veiculo.Name, veiculo.FormattedPrice), "OK");
+            Navigation.PushAsync(new DetalheView(veiculo));
         }
     }
 }
